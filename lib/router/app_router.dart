@@ -16,12 +16,17 @@ final GoRouter router = GoRouter(
     ),
     // Ruta para el formulario de visitantes (agregar o editar)
     GoRoute(
-      path: '/visitorForm/:visitorId', // Con parámetro visitorId
+      path: '/form',
       builder: (context, state) {
-        final visitorId = state.pathParameters['visitorId'] ??
-            ''; // Toma el visitorId de la URL
+        final bool isEditing = state.extra != null && state.extra is bool
+            ? state.extra as bool
+            : false;
+        final visitor = state.extra is Visitor
+            ? state.extra as Visitor
+            : null; // Pasar el visitante si está en la ruta
         return VisitorFormScreen(
-            visitorId: visitorId, isEditing: visitorId.isNotEmpty);
+            isEditing: isEditing,
+            visitor: visitor); // Pasar isEditing y visitor
       },
     ),
   ],

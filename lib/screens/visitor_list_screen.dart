@@ -13,13 +13,12 @@ class VisitorListScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text('Lista de visitantes'),
+            Text('Aquí iría la lista de visitantes'),
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // Navegar a la pantalla para agregar un nuevo visitante
-                context.go(
-                    '/visitorForm/'); // Navega a la pantalla de formulario de visitante
+                // Navegar a la pantalla del formulario de visitantes
+                context.go('/form'); // Usa la ruta correcta '/form'
               },
               child: Text('Agregar Visitante'),
             ),
